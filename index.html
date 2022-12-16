@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps and Sets</title>
+    <style>
+        body {
+            margin: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 2em;
+        }
+
+        p {
+            color: blue;
+        }
+
+        .ans {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maps and Sets</h1>
+    <h3>1. Problem</h3>
+    <p>
+        You are given a string (STR) of length N, consisting of only the lower case English alphabet. <br>
+Your task is to remove all the duplicate occurrences of characters in the string. <br> <br>
+
+Input: <br>
+abcadeecfb <br> <br>
+
+Output: <br>
+abcdef
+    </p>
+    <p class="ans">Solution:-</p>
+    <pre>
+        var STR = "abcadeecfb";
+
+        var mySet = new Set(STR);
+
+        let i = Array.from(mySet).join('');
+
+        console.log(i);
+    </pre>
+    <h3>2. Problem</h3>
+    <p>
+        You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps) <br> <br>
+
+Input: <br>
+abcadeecfb <br> <br>
+
+Output: <br>
+a=2 <br>
+b=2 <br>
+c=2 <br>
+d=1 <br>
+e=2 <br>
+f=1
+    </p>
+    <p class="ans">Solution:-</p>
+    <pre>
+        let str = "abcadeecfb";
+        let map = new Map();
+        let len = str.length;
+
+        for(let i=0; i< len;i++)
+        {
+            let char = str[i];
+            if(map.has(char))
+            {
+                let value = map.get(char);
+                map.set(char,value+1);
+            }
+            else
+            {
+                map.set(char,1);
+            }
+        }
+
+        for (let [key, value] of map) {
+            console.log(key + " = " + value);
+        }
+    </pre>
+</body>
+</html>
